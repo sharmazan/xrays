@@ -1,7 +1,11 @@
 # Django settings for xrays project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+
+rel = lambda *x: os.path.join(os.path.dirname(os.path.abspath(__file__)), *x)
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -64,6 +68,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+    rel('static'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -103,6 +108,7 @@ ROOT_URLCONF = 'xrays.urls'
 WSGI_APPLICATION = 'xrays.wsgi.application'
 
 TEMPLATE_DIRS = (
+    rel('templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

@@ -43,10 +43,10 @@
           <a class="brand" href="#">Master-UP Teacher Interface</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="my_cources.html">My Cources</a></li>
-              <li><a href="groups.html">Groups</a></li>
-              <li><a href="active_cources.html">Active Cources</a></li>
+              <li{% block index_menu_class %}{% endblock index_menu_class %}><a href="/">Home</a></li>
+              <li><a href="/my_cources/">My Cources</a></li>
+              <li{% block groups_menu_class %}{% endblock groups_menu_class %}><a href="/groups/">Groups</a></li>
+              <li><a href="/active_cources/">Active Cources</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

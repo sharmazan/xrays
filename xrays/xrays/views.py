@@ -1,6 +1,10 @@
 # views
 from django.http import HttpResponse
+from django.views.generic.simple import direct_to_template
 
 def index(request):
-    return HttpResponse('Hello!')
+    return  direct_to_template(request, "index.html")
+
+def groups(request):
+    return  direct_to_template(request, "groups.html")
 
