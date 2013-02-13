@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block groups_menu_class %} class="active"{% endblock groups_menu_class %}
+
+{% block main_content %}
+    <h1>Ренген 243</h1>
+    <div id="patient_info">
+        <h2>Пациент: <a href="/patient/">Василий Петров</a></h2>
+
+        <p>Дата обследования: 24.02.2012</p>
+
+        <h2>Заключение</h2>
+        <p>Обследование прошло успешно</p>
+	</div>
+    <div id="survey_data">
+        <h2>Рентген</h2>
+
+        <p>Изображение снимка</p>
+    </div>
+{% endblock main_content %}
+
