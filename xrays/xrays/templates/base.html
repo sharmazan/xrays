@@ -40,13 +40,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">Master-UP Teacher Interface</a>
+          <a class="brand" href="/">Rentgen</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li{% block index_menu_class %}{% endblock index_menu_class %}><a href="/">Home</a></li>
-              <li><a href="/my_cources/">My Cources</a></li>
-              <li{% block groups_menu_class %}{% endblock groups_menu_class %}><a href="/groups/">Groups</a></li>
-              <li><a href="/active_cources/">Active Cources</a></li>
+              <li{% block patients_menu_class %}{% endblock patients_menu_class %}><a href="/patients/">Пациенты</a></li>
+              <li{% block new_patient_menu_class %}{% endblock new_patient_menu_class %}><a href="/new-patient/">Добавить пациента</a></li>
+              <li{% block new_survey_menu_class %}{% endblock new_survey_menu_class %}><a href="/new-survey/">Новое обследование</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
