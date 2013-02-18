@@ -10,6 +10,9 @@ urlpatterns = patterns('',
     url(r'^patients/$', 'xrays.views.patients'),
     url(r'^new-patient/$', 'xrays.views.new_patient'),
     url(r'^new-survey/$', 'xrays.views.new_survey'),
+    url(r'^patients/(?P<patient_id>\d+)/$', 'xrays.views.patient'),
+    url(r'^survey/(?P<survey_id>\d+)/$', 'xrays.views.survey'),
+ 
 
     # url(r'^xrays/', include('xrays.foo.urls')),
 

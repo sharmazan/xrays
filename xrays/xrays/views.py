@@ -14,6 +14,9 @@ def new_patient(request):
 def new_survey(request):
     return  direct_to_template(request, "new-survey.html")
 
-def patients(request):
-    return  direct_to_template(request, "patients-list.html")
+def patient(request, patient_id):
+    return  direct_to_template(request, "patient.html")
+
+def survey(request, survey_id):
+    return  direct_to_template(request, "survey.html")
 
