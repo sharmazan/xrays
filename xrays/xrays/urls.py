@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     url(r'^patients/$', 'xrays.views.patients'),
     url(r'^new-patient/$', 'xrays.views.new_patient'),
     url(r'^new-survey/$', 'xrays.views.new_survey'),
-    url(r'^patients/$', 'xrays.views.patients'),
+
     # url(r'^xrays/', include('xrays.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
