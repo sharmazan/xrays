@@ -1,30 +1,32 @@
 from django.db import models
 
+class Specialist(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    speciality = models.CharField(max_length=30)
+    info = models.TextField()
+
+    def __unicode__(self):
+        return "%s %s" % (self.firstname, self.lastname)
+
+
 class Patient(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    info = TextField()
-    history = TextField()
-    doctor = ForeignKey(Specialist)
+    info = models.TextField()
+    history = models.TextField()
+    doctor = models.ForeignKey(Specialist)
 
-    def __unicode(self):
+    def __unicode__(self):
     	return "%s %s" % (self.firstname, self.lastname)
 
 
 class Survey(models.Model):
     patient = models.ForeignKey(Patient)
-    date = models.DateTimeField('date of survey')
+    date = models.DateTimeField()
     result = models.TextField()
-    specialist = ForeignKey(Specialist)
+    image = models.ImageField(upload_to="survey-data/%s" % (str(id)))
+    technician = models.ForeignKey(Specialist)
 
-    def __unicode(self):
+    def __unicode__(self):
     	return "%d - %s %s" % (self.date, patient.firstname, patient.lastname)
-
-
-class Specialist(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    info = TextField()
-
-    def __unicode(self):
-    	return "%s %s" % (self.firstname, self.lastname)
