@@ -3,10 +3,15 @@
 {% block patients_menu_class %} class="active"{% endblock patients_menu_class %}
 
 {% block main_content %}
-      <h2><a href="/patients/1">Виктор Петров (1)</a></h2>
+
+<div>
+  <ul>
+    {% for patient in patinets %}
+    <li><a href="/patients/"{{ patient.id }}>{{ patient.id }} - {{ patient.first_name }} {{ patient.last_name }} (1)</a></li>
       <p>Список последних обследований</p>
 
       <h2><a href="/patients/2">Василий Иванов (2)</a></h2>
       <p>Список последних обследований</p>
+</div>
 {% endblock main_content %}
 

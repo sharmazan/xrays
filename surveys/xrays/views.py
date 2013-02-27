@@ -5,7 +5,9 @@ from django.views.generic.simple import direct_to_template
 def index(request):
     return  direct_to_template(request, "index.html")
 
-def patients(request):
+def patients(request, id):
+	print id
+	patients = Patient.objects.all()
     return  direct_to_template(request, "patients-list.html")
 
 def new_patient(request):
