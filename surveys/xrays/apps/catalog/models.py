@@ -7,7 +7,7 @@ class Specialist(models.Model):
     info = models.TextField()
 
     def __unicode__(self):
-        return "%s %s" % (self.firstname, self.lastname)
+        return "%s %s" % (self.first_name, self.last_name)
 
 
 class Patient(models.Model):
@@ -18,7 +18,7 @@ class Patient(models.Model):
     doctor = models.ForeignKey(Specialist)
 
     def __unicode__(self):
-    	return "%s %s" % (self.firstname, self.lastname)
+    	return "%s %s" % (self.first_name, self.last_name)
 
 
 class Survey(models.Model):
@@ -29,4 +29,4 @@ class Survey(models.Model):
     technician = models.ForeignKey(Specialist)
 
     def __unicode__(self):
-    	return "%d - %s %s" % (self.date, patient.firstname, patient.lastname)
+    	return "%d - %s %s" % (self.date, patient.first_name, patient.last_name)
