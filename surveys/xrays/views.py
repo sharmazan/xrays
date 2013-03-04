@@ -1,23 +1,23 @@
 # views
 from django.http import HttpResponse
-from django.views.generic.simple import direct_to_template
+from django.shortcuts import render
 
 def index(request):
-    return  direct_to_template(request, "index.html")
+    return  render(request, "index.html")
 
 def patients(request):
 #	patients = Patient.objects.all()
-    return  direct_to_template(request, "patients-list.html")
+    return  render(request, "patients-list.html")
 
 def new_patient(request):
-    return  direct_to_template(request, "new-patient.html")
+    return  render(request, "new-patient.html")
 
 def new_survey(request):
-    return  direct_to_template(request, "new-survey.html")
+    return  render(request, "new-survey.html")
 
 def patient(request, patient_id):
-    return  direct_to_template(request, "patient.html")
+    return  render(request, "patient.html")
 
 def survey(request, survey_id):
-    return  direct_to_template(request, "survey.html")
+    return  render(request, "survey.html")
 
