@@ -5,13 +5,11 @@
 {% block main_content %}
 
 <div>
-  <ul>
-    {% for patient in patinets %}
-    <li><a href="/patients/"{{ patient.id }}>{{ patient.id }} - {{ patient.first_name }} {{ patient.last_name }} (1)</a></li>
+    {% for patient in patients %}
+    <h2><a href="/patients/{{ patient.id }}">{{ patient.id }} - {{ patient.first_name }} {{ patient.last_name }} (1)</a></h2>
       <p>Список последних обследований</p>
+    {% endfor %}
 
-      <h2><a href="/patients/2">Василий Иванов (2)</a></h2>
-      <p>Список последних обследований</p>
 </div>
 {% endblock main_content %}
 

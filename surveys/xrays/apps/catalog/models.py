@@ -14,7 +14,7 @@ class Patient(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     info = models.TextField()
-    history = models.TextField()
+    history = models.TextField(blank=True, null=True)
     doctor = models.ForeignKey(Specialist)
 
     def __unicode__(self):
@@ -25,7 +25,7 @@ class Survey(models.Model):
     patient = models.ForeignKey(Patient)
     date = models.DateTimeField()
     result = models.TextField()
-    image = models.ImageField(upload_to="survey-data/%s" % (str(id)))
+#    image = models.ImageField(upload_to="d:/survey-data/%s" % (str(self.id)))
     technician = models.ForeignKey(Specialist)
 
     def __unicode__(self):
