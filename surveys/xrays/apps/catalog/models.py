@@ -25,8 +25,8 @@ class Survey(models.Model):
     patient = models.ForeignKey(Patient)
     date = models.DateTimeField()
     result = models.TextField()
-#    image = models.ImageField(upload_to="d:/survey-data/%s" % (str(self.id)))
+    image = models.ImageField(upload_to="survey-data") #upload_to="d:/survey-data/%s" % (str(self.id))
     technician = models.ForeignKey(Specialist)
 
     def __unicode__(self):
-    	return "%d - %s %s" % (self.date, patient.first_name, patient.last_name)
+    	return "%s - %s %s" % (self.date, self.patient.first_name, self.patient.last_name)
