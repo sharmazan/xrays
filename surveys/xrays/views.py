@@ -17,8 +17,10 @@ def patients(request):
 def new_patient(request):
     return  render(request, "new-patient.html")
 
+
 def new_survey(request):
     return  render(request, "new-survey.html")
+
 
 def patient(request, patient_id):
 
@@ -29,6 +31,10 @@ def patient(request, patient_id):
                     {'patient': patient,
                      'surveys': surveys })
 
+
 def survey(request, survey_id):
-    return  render(request, "survey.html")
+
+    survey = Survey.objects.get(id=survey_id)
+    return  render(request, "survey.html",
+                    {'survey': survey})
 
