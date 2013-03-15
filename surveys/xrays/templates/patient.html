@@ -2,11 +2,21 @@
 
 {% block main_content %}
     <h1>{{ patient.first_name }} {{ patient.last_name }}</h1>
+
+    <p>Доктор: <a href="/doctors/{{ patient.doctor.id }}">{{ patient.doctor.first_name }} {{ patient.doctor.last_name }}</a></p>
+
+    <p>Информация: {{ patient.info }}</p>
+
+    <p>История болезни: {{ patient.history }}</p>
+
     
-    {% for survey in surveys %}
-      <h2><a href="/survey/{{ survey.id }}">{{ survey.date }}</a></h2>
-      <p>{{ survey.result }}</p>
-    {% endfor %}
+    <h2>Обследования</h2>
+    <ul>
+      {% for survey in surveys %}
+        <li><a href="/survey/{{ survey.id }}">{{ survey.date }}</a></li>
+        <p>{{ survey.result }}</p>
+      {% endfor %}
+    </ul>
 
 {% endblock main_content %}
 

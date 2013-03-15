@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <h1>{{ doctor.first_name }} {{ doctor.last_name }}</h1>
+
+    <p>Специальность: {{ doctor.speciality }}</p>
+
+    <p>Информация: {{ doctor.info }}</p>
+
+    
+    <h2>Пациенты</h2>
+    <ul>
+      {% for patient in patients %}
+        <li><a href="/patients/{{ patient.id }}">{{ patient.first_name }} {{ patient.last_name }}</a></li>
+      {% endfor %}
+    </ul>
+
+{% endblock main_content %}
+

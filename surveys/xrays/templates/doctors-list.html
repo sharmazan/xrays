@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block doctors_menu_class %} class="active"{% endblock doctors_menu_class %}
+
+{% block main_content %}
+
+<div>
+    <h1>Наши специалисты</h1>
+    {% for doctor in doctors %}
+    <h2><a href="/doctors/{{ doctor.id }}">{{ doctor.id }} - {{ doctor.first_name }} {{ doctor.last_name }}</a></h2>
+    {% endfor %}
+
+</div>
+{% endblock main_content %}
+

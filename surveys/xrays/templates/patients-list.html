@@ -5,9 +5,9 @@
 {% block main_content %}
 
 <div>
+    <h1>Наши пациенты</h1>
     {% for patient in patients %}
-    <h2><a href="/patients/{{ patient.id }}">{{ patient.id }} - {{ patient.first_name }} {{ patient.last_name }} (1)</a></h2>
-      <p>Список последних обследований</p>
+    <h2><a href="/patients/{{ patient.id }}">{{ patient.id }} - {{ patient.first_name }} {{ patient.last_name }}</a></h2>
     {% endfor %}
 
 </div>
