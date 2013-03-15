@@ -8,11 +8,11 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'xrays.views.index', name='main_page'),
-    url(r'^patients/$', 'xrays.views.patients', name='patients_list'),
-    url(r'^new-patient/$', 'xrays.views.new_patient'),
-    url(r'^new-survey/$', 'xrays.views.new_survey'),
-    url(r'^patients/(?P<patient_id>\d+)/$', 'xrays.views.patient'),
-    url(r'^survey/(?P<survey_id>\d+)/$', 'xrays.views.survey'),
+    url(r'^patients/$', 'xrays.apps.catalog.views.patients', name='patients_list'),
+    url(r'^new-patient/$', 'xrays.apps.catalog.views.new_patient'),
+    url(r'^new-survey/$', 'xrays.apps.catalog.views.new_survey'),
+    url(r'^patients/(?P<patient_id>\d+)/$', 'xrays.apps.catalog.views.patient'),
+    url(r'^survey/(?P<survey_id>\d+)/$', 'xrays.apps.catalog.views.survey'),
  
 
     # url(r'^xrays/', include('xrays.foo.urls')),
