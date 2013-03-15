@@ -24,7 +24,7 @@ class Migration(SchemaMigration):
             ('first_name', self.gf('django.db.models.fields.CharField')(max_length=30)),
             ('last_name', self.gf('django.db.models.fields.CharField')(max_length=30)),
             ('info', self.gf('django.db.models.fields.TextField')()),
-            ('history', self.gf('django.db.models.fields.TextField')()),
+            ('history', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('doctor', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['catalog.Specialist'])),
         ))
         db.send_create_signal(u'catalog', ['Patient'])
@@ -57,7 +57,7 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'Patient'},
             'doctor': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['catalog.Specialist']"}),
             'first_name': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
-            'history': ('django.db.models.fields.TextField', [], {}),
+            'history': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'info': ('django.db.models.fields.TextField', [], {}),
             'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30'})

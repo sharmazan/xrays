@@ -42,7 +42,7 @@ def doctor_item(request, doctor_id):
 
 def survey_item(request, survey_id):
 
-    survey = Survey.objects.get(id=survey_id)
+    survey = get_object_or_404(Survey, id=survey_id)
     return  render(request, "survey.html",
                     {'survey': survey})
 
