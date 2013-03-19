@@ -36,6 +36,6 @@ urlpatterns = patterns('',
     url(r'^doctors/$', 'xrays.apps.catalog.views.doctors_list', name='doctors_list'),
     url(r'^doctors/(?P<doctor_id>\d+)/$', 'xrays.apps.catalog.views.doctor_item', name='doctor_item'),
 
-
+    url(r'', include('django.contrib.flatpages.urls')),
 
 )
