@@ -36,6 +36,8 @@ urlpatterns = patterns('',
 
     url(r'^survey/(?P<survey_id>\d+)/$', 'xrays.apps.catalog.views.survey_item', name='survey_item'),
 
-    url(r'^about/$', include('django.contrib.flatpages.urls'), name='about_page'),
+)
 
+urlpatterns += patterns('django.contrib.flatpages.views',
+    url(r'^about/$', 'flatpage', {'url': '/about/'}, name='about'),
 )

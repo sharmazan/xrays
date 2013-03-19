@@ -1,13 +1,13 @@
-{% extends "patient.html" %}
+{% extends "doctor.html" %}
 
 {% block main_content %}
 
-<h1>Edit patient {{ patient.first_name }} {{ patient.last_name }}</h1>
+<h1>Edit doctor {{ doctor.first_name }} {{ doctor.last_name }}</h1>
 
 {% comment %}
 <form method='GET'>
-<label>First name</label> <input type='text' value='{{ patient.first_name }}' name='first_name' />
-<label>Last name</label> <input type='text' value='{{ patient.last_name }}' name='last_name' />
+<label>First name</label> <input type='text' value='{{ doctor.first_name }}' name='first_name' />
+<label>Last name</label> <input type='text' value='{{ doctor.last_name }}' name='last_name' />
 <input type='submit' name='submit' value='submit' />
 </form>
 {% endcomment %}
