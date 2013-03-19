@@ -1,0 +1,23 @@
+{% extends "patient.html" %}
+
+{% block main_content %}
+
+<h1>Edit patient {{ patient.first_name }} {{ patient.last_name }}</h1>
+
+{% comment %}
+<form method='GET'>
+<label>First name</label> <input type='text' value='{{ patient.first_name }}' name='first_name' />
+<label>Last name</label> <input type='text' value='{{ patient.last_name }}' name='last_name' />
+<input type='submit' name='submit' value='submit' />
+</form>
+{% endcomment %}
+
+<form method='GET'>
+{{ form }}
+<div>
+<input type='submit' name='submit' value='submit' />
+</div>
+</form>
+
+
+{% endblock main_content %}

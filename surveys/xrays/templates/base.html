@@ -44,8 +44,8 @@
             <ul class="nav">
               <li{% block patients_menu_class %}{% endblock patients_menu_class %}><a href="{% url 'patients_list' %}">Пациенты</a></li>
               <li{% block doctors_menu_class %}{% endblock doctors_menu_class %}><a href="/doctors/">Специалисты</a></li>
-              <li{% block new_patient_menu_class %}{% endblock new_patient_menu_class %}><a href="/new-patient/">Новый пациент</a></li>
-              <li{% block new_survey_menu_class %}{% endblock new_survey_menu_class %}><a href="/new-survey/">Новое обследование</a></li>
+              <li{% block new_patient_menu_class %}{% endblock new_patient_menu_class %}><a href="/patients/new/">Новый пациент</a></li>
+              <li{% block new_survey_menu_class %}{% endblock new_survey_menu_class %}><a href="/survey/new/">Новое обследование</a></li>
               <li{% block about_menu_class %}{% endblock about_menu_class %}><a href="/about/">О проекте</a></li>
               <li><a href="/admin/">Админка</a></li>
             </ul>

@@ -9,10 +9,6 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'xrays.views.index', name='main_page'),
 
- 
-    url(r'^new-patient/$', 'xrays.apps.catalog.views.new_patient'),
-    url(r'^new-survey/$', 'xrays.apps.catalog.views.new_survey'),
-
     # url(r'^xrays/', include('xrays.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
@@ -30,12 +26,16 @@ urlpatterns = patterns('',
 
     url(r'^patients/$', 'xrays.apps.catalog.views.patients_list', name='patients_list'),
     url(r'^patients/(?P<patient_id>\d+)/$', 'xrays.apps.catalog.views.patient_item', name='patient_item'),
-
-    url(r'^survey/(?P<survey_id>\d+)/$', 'xrays.apps.catalog.views.survey_item', name='survey_item'),
+    url(r'^patients/(?P<patient_id>\d+)/edit/$', 'xrays.apps.catalog.views.patient_item_edit', name='patient_edit'),
+    url(r'^patients/new/$', 'xrays.apps.catalog.views.patient_item_edit', name='patient_create'),
 
     url(r'^doctors/$', 'xrays.apps.catalog.views.doctors_list', name='doctors_list'),
     url(r'^doctors/(?P<doctor_id>\d+)/$', 'xrays.apps.catalog.views.doctor_item', name='doctor_item'),
+    url(r'^doctors/(?P<doctor_id>\d+)/edit/$', 'xrays.apps.catalog.views.doctor_item_edit', name='doctor_edit'),
+    url(r'^doctors/new/$', 'xrays.apps.catalog.views.doctor_item_edit', name='doctor_create'),    
 
-    url(r'', include('django.contrib.flatpages.urls')),
+    url(r'^survey/(?P<survey_id>\d+)/$', 'xrays.apps.catalog.views.survey_item', name='survey_item'),
+
+    url(r'^about/$', include('django.contrib.flatpages.urls'), name='about_page'),
 
 )
