@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block main_content %}
-    <h1>{{ patient.first_name }} {{ patient.last_name }}</h1>
+    <h1>{{ patient.first_name }} {{ patient.last_name }}<a href="{% url 'patient_edit' patient.id %}"><span class="icon-edit"></span></a></h1>
 
-    <p>Доктор: <a href="/doctors/{{ patient.doctor.id }}">{{ patient.doctor.first_name }} {{ patient.doctor.last_name }}</a></p>
+    <p>Доктор: <a href="{% url 'doctor_item' patient.doctor.id %}">{{ patient.doctor.first_name }} {{ patient.doctor.last_name }}</a></p>
 
     <p>Информация: {{ patient.info }}</p>
 
@@ -13,7 +13,7 @@
     <h2>Обследования</h2>
     <ul>
       {% for survey in surveys %}
-        <li><a href="/survey/{{ survey.id }}">{{ survey.date }}</a></li>
+        <li><a href="{% url 'survey_item' survey.id %}">{{ survey.date }}</a></li>
         <p>{{ survey.result }}</p>
       {% endfor %}
     </ul>
