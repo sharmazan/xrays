@@ -1,16 +1,8 @@
-{% extends "doctor.html" %}
+{% extends "base.html" %}
 
 {% block main_content %}
 
 <h1>Edit doctor {{ doctor.first_name }} {{ doctor.last_name }}</h1>
-
-{% comment %}
-<form method='GET'>
-<label>First name</label> <input type='text' value='{{ doctor.first_name }}' name='first_name' />
-<label>Last name</label> <input type='text' value='{{ doctor.last_name }}' name='last_name' />
-<input type='submit' name='submit' value='submit' />
-</form>
-{% endcomment %}
 
 <form method='GET'>
 {{ form }}
@@ -18,6 +10,5 @@
 <input type='submit' name='submit' value='submit' />
 </div>
 </form>
-
 
 {% endblock main_content %}

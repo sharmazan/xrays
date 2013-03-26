@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block new_survey_menu_class %} class="active" {% endblock new_survey_menu_class %}
+
+{% block main_content %}
+
+    <h1>Edit survey {{ survey.id }}</h1>
+    <div>
+        <form method='GET'>
+        {{ form }}
+        <div>
+        <input type='submit' name='submit' value='submit' />
+        </div>
+        </form>
+
+    </div>
+
+{% endblock main_content %}
+

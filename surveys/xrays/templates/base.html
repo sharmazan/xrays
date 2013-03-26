@@ -47,7 +47,8 @@
               <li{% block new_patient_menu_class %}{% endblock new_patient_menu_class %}><a href="{% url 'patient_create' %}">Новый пациент</a></li>
               <li{% block new_survey_menu_class %}{% endblock new_survey_menu_class %}><a href="/survey/new/">Новое обследование</a></li>
               <li{% block about_menu_class %}{% endblock about_menu_class %}><a href="{% url 'about_page' %}">О проекте</a></li>
-              <li><a href="/admin/">Админка</a></li>
+              <li{% block contact_menu_class %}{% endblock contact_menu_class %}><a href="{% url 'contact_page' %}">Обратная связь</a></li>
+              <li><a href="{% url 'admin:index' %}">Админка</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

@@ -1,7 +1,14 @@
 # Create your views here.
+import datetime
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.forms import ModelForm
+from django import forms
+from django.forms import extras
+
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
+from django.contrib.admin.widgets import AdminDateWidget
 
 from xrays.apps.catalog.models import Patient, Specialist, Survey
 
@@ -97,3 +104,54 @@ def survey_item(request, survey_id):
                     {'survey': survey})
 
 
+
+class SurveyForm(ModelForm):
+    class Meta:
+        model = Survey
+
+def survey_item_edit(request, survey_id=None):
+    print "Survey edit"
+    if survey_id is not None:
+        survey = get_object_or_404(Survey, id=survey_id)
+    else:
+        survey = None
+
+    if request.GET:
+        form = SurveyForm(request.GET, instance=survey)
+        if form.is_valid():
+            survey = form.save()
+            return redirect(reverse('survey_item', args=[survey.id]))
+    else:
+        form = SurveyForm(instance=survey)
+        
+    return render(request, "survey_edit_item.html",
+                    {'survey': survey, 'form': form })
+
+class ContactForm(forms.Form):
+    name = forms.CharField()
+    email = forms.EmailField()
+    text = forms.CharField(widget=forms.Textarea)
+
+
+def contact_page(request):
+    print datetime.date.today
+    if request.method == 'POST': # If the form has been submitted...
+        form = ContactForm(request.POST) # A form bound to the POST data
+        if form.is_valid(): # All validation rules pass
+            # Process the data in form.cleaned_data
+            # ...
+            print form.cleaned_data
+            data = form.cleaned_data
+            data['date'] = datetime.datetime.now()
+            message = render_to_string ('contact_form_template.txt', data)
+            send_mail("Contact from Rentgen", message, data['email'], ["sergey.sharm@gmail.com"])
+            # send_mail("Contact from Rentgen", data['text'], data['email'], ["sergey.sharm@gmail.com"])
+            return redirect('/thanks/') # Redirect after POST
+    else:
+        form = ContactForm() # An unbound form
+
+
+    return  render(request, "contact_page.html", {'form': form})
+
+def thanks_page(request):
+    return  render(request, "thanks.html")    

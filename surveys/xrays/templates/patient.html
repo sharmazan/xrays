@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block main_content %}
-    <h1>{{ patient.first_name }} {{ patient.last_name }}<a href="{% url 'patient_edit' patient.id %}"><span class="icon-edit"></span></a></h1>
+    <h1>{{ patient.first_name }} {{ patient.last_name }}<a href="{% url 'patient_edit' patient.id %}"><span class="icon-pencil"></span></a></h1>
 
     <p>Доктор: <a href="{% url 'doctor_item' patient.doctor.id %}">{{ patient.doctor.first_name }} {{ patient.doctor.last_name }}</a></p>
 

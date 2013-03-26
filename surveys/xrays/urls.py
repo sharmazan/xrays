@@ -17,7 +17,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
 
 
-    url(r'^admin/', include(admin.site.urls), name='admin_panel'),
+    url(r'^admin/', include(admin.site.urls)),
 
 
     # url(r'^patients/', include('xrays.apps.catalog.urls')),
@@ -35,6 +35,11 @@ urlpatterns = patterns('',
     url(r'^doctors/new/$', 'xrays.apps.catalog.views.doctor_item_edit', name='doctor_create'),    
 
     url(r'^survey/(?P<survey_id>\d+)/$', 'xrays.apps.catalog.views.survey_item', name='survey_item'),
+    url(r'^survey/(?P<survey_id>\d+)/edit/$', 'xrays.apps.catalog.views.survey_item_edit', name='survey_edit'),
+    url(r'^survey/new/$', 'xrays.apps.catalog.views.survey_item_edit', name='survey_create'),
+
+    url(r'^contact/$', 'xrays.apps.catalog.views.contact_page', name='contact_page'),
+    url(r'^thanks/$', 'xrays.apps.catalog.views.thanks_page', name='thanks_page'),
 
 )
 
