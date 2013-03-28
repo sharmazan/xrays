@@ -42,13 +42,21 @@
           <a class="brand" href="/">Rentgen</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
+              {% if user.is_authenticated %}
               <li{% block patients_menu_class %}{% endblock patients_menu_class %}><a href="{% url 'patients_list' %}">Пациенты</a></li>
+              {% endif %}
               <li{% block doctors_menu_class %}{% endblock doctors_menu_class %}><a href="{% url 'doctors_list' %}">Специалисты</a></li>
+              {% if user.is_authenticated %}
               <li{% block new_patient_menu_class %}{% endblock new_patient_menu_class %}><a href="{% url 'patient_create' %}">Новый пациент</a></li>
               <li{% block new_survey_menu_class %}{% endblock new_survey_menu_class %}><a href="/survey/new/">Новое обследование</a></li>
+              {% endif %}
               <li{% block about_menu_class %}{% endblock about_menu_class %}><a href="{% url 'about_page' %}">О проекте</a></li>
               <li{% block contact_menu_class %}{% endblock contact_menu_class %}><a href="{% url 'contact_page' %}">Обратная связь</a></li>
-              <li><a href="{% url 'admin:index' %}">Админка</a></li>
+              {% if user.is_authenticated %}
+                <li><a href="{% url 'admin:index' %}">Админка</a></li>
+                <li><a href="{% url 'logout' %}?next=/">Logout</a></li>
+              {% endif %}
+              
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -59,6 +67,7 @@
 {% block main_content %}
 
 {% endblock main_content %}
+{{ user }}
     </div> <!-- /container -->
 
     <!-- Le javascript

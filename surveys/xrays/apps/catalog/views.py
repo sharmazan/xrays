@@ -6,6 +6,8 @@ from django.forms import ModelForm
 from django import forms
 from django.forms import extras
 
+from django.contrib.auth.decorators import login_required
+
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
 from django.contrib.admin.widgets import AdminDateWidget
@@ -13,14 +15,14 @@ from django.contrib.admin.widgets import AdminDateWidget
 from xrays.apps.catalog.models import Patient, Specialist, Survey
 
 
-
+@login_required
 def patients_list(request):
     patients = Patient.objects.all()
     return render(request, "patients-list.html",
                     {'patients': patients})
 
 
-
+@login_required
 def patient_item(request, patient_id):
 
     patient = get_object_or_404(Patient, id=patient_id)
@@ -35,6 +37,7 @@ class PatientForm(ModelForm):
     class Meta:
         model = Patient
 
+@login_required
 def patient_item_edit(request, patient_id=None):
     print "Patient edit"
     if patient_id is not None:
@@ -61,7 +64,7 @@ def doctors_list(request):
                     {'doctors': doctors})
 
 
-
+@login_required
 def doctor_item(request, doctor_id):
 
     doctor = get_object_or_404(Specialist, id=doctor_id)
@@ -76,6 +79,7 @@ class SpecialistForm(ModelForm):
     class Meta:
         model = Specialist
 
+@login_required
 def doctor_item_edit(request, doctor_id=None):
     print "Specialist edit"
     if doctor_id is not None:
@@ -96,7 +100,7 @@ def doctor_item_edit(request, doctor_id=None):
 
 
 
-
+@login_required
 def survey_item(request, survey_id):
 
     survey = get_object_or_404(Survey, id=survey_id)
@@ -109,6 +113,7 @@ class SurveyForm(ModelForm):
     class Meta:
         model = Survey
 
+@login_required
 def survey_item_edit(request, survey_id=None):
     print "Survey edit"
     if survey_id is not None:
