@@ -20,7 +20,13 @@
         <img src="{{ survey.image.url }}">Изображение снимка
     </div>
     <div>
-{% get_comment_list for survey as comment_list %}
+        {% get_comment_list for survey as comment_list %}
+        <div>
+        {% for comment in comment_list %}
+        <p>{{ comment.user_name }}: {{ comment.comment }}
+        </p>
+        {% endfor %}
+        </div>
 
 
         {% get_comment_form for survey as form %}
