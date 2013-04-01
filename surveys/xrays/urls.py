@@ -1,4 +1,6 @@
 from django.conf.urls import patterns, include, url
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 # Uncomment the next two lines to enable the admin:
@@ -20,6 +22,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/login/$', 'django.contrib.auth.views.login', name='login'),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name='logout'),
+    url(r'^comments/', include('django.contrib.comments.urls')),
 
 
     # url(r'^patients/', include('xrays.apps.catalog.urls')),
@@ -43,7 +46,7 @@ urlpatterns = patterns('',
     url(r'^contact/$', 'xrays.apps.catalog.views.contact_page', name='contact_page'),
     url(r'^thanks/$', 'xrays.apps.catalog.views.thanks_page', name='thanks_page'),
 
-)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += patterns('django.contrib.flatpages.views',
     url(r'^about/$', 'flatpage', {'url': '/about/'}, name='about_page'),

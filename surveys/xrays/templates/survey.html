@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load comments %}
 
 {% block patients_menu_class %} class="active"{% endblock patients_menu_class %}
 
@@ -16,7 +17,16 @@
 
         <h2>Рентген</h2>
 
-        <p>Изображение снимка</p>
+        <img src="{{ survey.image.url }}">Изображение снимка
     </div>
+    <div>
+{% get_comment_list for survey as comment_list %}
+
+
+        {% get_comment_form for survey as form %}
+        {% include "comments/form.html" %}
+
+    </div>
+
 {% endblock main_content %}
 
