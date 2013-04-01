@@ -1,6 +1,6 @@
 # Create your views here.
 import datetime
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, Http404
 from django.core.urlresolvers import reverse
 from django.forms import ModelForm
 from django import forms
@@ -12,12 +12,25 @@ from django.template.loader import render_to_string
 from django.core.mail import send_mail
 from django.contrib.admin.widgets import AdminDateWidget
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+
 from xrays.apps.catalog.models import Patient, Specialist, Survey
 
 
 @login_required
 def patients_list(request):
     patients = Patient.objects.all()
+    paginator = Paginator(patients, 5)
+
+    page = request.GET.get('page', 1)
+
+    try:
+        patients = paginator.page(page)
+    except (PageNotAnInteger, EmptyPage):
+        raise Http404
+
+
     return render(request, "patients-list.html",
                     {'patients': patients})
 
