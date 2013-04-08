@@ -172,6 +172,6 @@ LOGGING = {
 }
 
 try:
-    import local_settings
-except:
+    from local_settings import *
+except ImportError:
     print "Can't import local settings!"
