@@ -170,3 +170,8 @@ LOGGING = {
         },
     }
 }
+
+try:
+    import local_settings
+except:
+    print "Can't import local settings!"
